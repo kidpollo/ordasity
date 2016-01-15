@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.boundary</groupId>
+    <groupId>kidpollo</groupId>
     <artifactId>ordasity-scala_2.9.1</artifactId>
-    <version>0.5.22-SNAPSHOT</version>
+    <version>0.5.3</version>
     <name>Ordasity</name>
-    <url>http://www.boundary.com</url>
+    <url>https://github.com/kidpollo/ordasity</url>
     <packaging>jar</packaging>
 
     <properties>
@@ -16,15 +16,15 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.boundary</groupId>
+            <groupId>kidpollo</groupId>
             <artifactId>overlock-scala_${scala.version}</artifactId>
-            <version>0.8.7-SNAPSHOT</version>
+            <version>0.8.7</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
-            <version>3.4.7</version>
+            <version>3.4.6</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
