@@ -220,6 +220,8 @@ class MeteredBalancingPolicySpec extends Spec {
       def shutdownWork(workUnit: String) = null
       def onLeave() = null
       def onJoin(client: ZooKeeperClient) = null
+      def onDisconnect() = null
+      def onReconnect() = null
     }
 
     val cluster = new Cluster(UUID.randomUUID.toString, listener, config)

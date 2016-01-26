@@ -168,10 +168,12 @@ class Cluster(val name: String, val listener: Listener, config: ClusterConfig)
         case KeeperState.Disconnected =>
           log.info("ZooKeeper session disconnected. Awaiting reconnect...")
           connected.set(false)
+          listener.onDisconnect()
           awaitReconnect()
         case x: Any =>
           log.info("ZooKeeper session interrupted. Shutting down due to %s".format(x))
           connected.set(false)
+          listener.onDisconnect()
           awaitReconnect()
       }
     }
@@ -274,9 +276,11 @@ class Cluster(val name: String, val listener: Listener, config: ClusterConfig)
   def onConnect() {
     if (state.get() != NodeState.Fresh) {
       if (previousZKSessionStillActive()) {
+        listener.onReconnect()
         log.info("ZooKeeper session re-established before timeout.")
         return
       }
+
       log.warn("Rejoined after session timeout. Forcing shutdown and clean startup.")
       ensureCleanStartup()
     }

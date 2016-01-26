@@ -21,6 +21,8 @@ import com.twitter.common.zookeeper.ZooKeeperClient
 
 abstract class Listener {
   def onJoin(client: ZooKeeperClient)
+  def onReconnect()
+  def onDisconnect()
   def onLeave()
   def shutdownWork(workUnit: String)
 }
