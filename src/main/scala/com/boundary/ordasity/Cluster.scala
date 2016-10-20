@@ -214,7 +214,7 @@ class Cluster(val name: String, val listener: Listener, config: ClusterConfig)
       zk.register(connectionWatcher)
     }
 
-    zk.get()
+    zk.get(Amount.of(config.zkTimeout, Time.MILLISECONDS))
   }
 
   /**
